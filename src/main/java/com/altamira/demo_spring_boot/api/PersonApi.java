@@ -5,18 +5,19 @@
 */
 package com.altamira.demo_spring_boot.api;
 
-import com.altamira.demo_spring_boot.dto.PersonRequest;
-import com.altamira.demo_spring_boot.entities.Person;
-import com.altamira.demo_spring_boot.services.DemosServices;
 import java.util.LinkedList;
 import java.util.List;
-import org.dozer.Mapper;
 
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.altamira.demo_spring_boot.dto.PersonRequest;
+import com.altamira.demo_spring_boot.entities.Person;
+import com.altamira.demo_spring_boot.services.DemosServices;
 
 /**
  *
@@ -43,6 +44,7 @@ public class PersonApi {
     
     @RequestMapping(value = "/person", method= RequestMethod.POST)
     public void savePerson(@RequestBody PersonRequest personRequest){
+        //SERVICIO PARA GUARDAR PERSONA
         Person map = mapper.map(personRequest, Person.class);
         demosServices.save(map);
     }
